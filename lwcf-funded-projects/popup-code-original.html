@@ -1,0 +1,75 @@
+<!-- beginning line 265 of index -->
+        function pop_LWCFfundedprojects_3(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Project_Nu</th>\
+                        <td>' + (feature.properties['Project_Nu'] !== null ? Autolinker.link(feature.properties['Project_Nu'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Project_Na</strong><br />' + (feature.properties['Project_Na'] !== null ? Autolinker.link(feature.properties['Project_Na'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Latitude'] !== null ? Autolinker.link(feature.properties['Latitude'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Longitude'] !== null ? Autolinker.link(feature.properties['Longitude'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">certain_lo</th>\
+                        <td>' + (feature.properties['certain_lo'] !== null ? Autolinker.link(feature.properties['certain_lo'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Parish'] !== null ? Autolinker.link(feature.properties['Parish'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['City'] !== null ? Autolinker.link(feature.properties['City'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Sponsor</th>\
+                        <td>' + (feature.properties['Sponsor'] !== null ? Autolinker.link(feature.properties['Sponsor'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Spons_Type</th>\
+                        <td>' + (feature.properties['Spons_Type'] !== null ? Autolinker.link(feature.properties['Spons_Type'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Park_Name</th>\
+                        <td>' + (feature.properties['Park_Name'] !== null ? Autolinker.link(feature.properties['Park_Name'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">LWCF_Amt</th>\
+                        <td>' + (feature.properties['LWCF_Amt'] !== null ? Autolinker.link(feature.properties['LWCF_Amt'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Match_Amt'] !== null ? Autolinker.link(feature.properties['Match_Amt'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Total</th>\
+                        <td>' + (feature.properties['Total'] !== null ? Autolinker.link(feature.properties['Total'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Approved</th>\
+                        <td>' + (feature.properties['Approved'] !== null ? Autolinker.link(feature.properties['Approved'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Appl_Amt'] !== null ? Autolinker.link(feature.properties['Appl_Amt'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['LOSP'] !== null ? Autolinker.link(feature.properties['LOSP'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Type</th>\
+                        <td>' + (feature.properties['Type'] !== null ? Autolinker.link(feature.properties['Type'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['2018_Compl'] !== null ? Autolinker.link(feature.properties['2018_Compl'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Date_Disco'] !== null ? Autolinker.link(feature.properties['Date_Disco'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Date_Resol'] !== null ? Autolinker.link(feature.properties['Date_Resol'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
