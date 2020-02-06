@@ -17,7 +17,7 @@
             margin: 0;
         }
         </style>
-        <title></title>
+        <title>LWCF Funded Projects</title>
     </head>
     <body>
         <div id="map">
@@ -33,12 +33,12 @@
         <script src="js/labels.js"></script>
         <script src="js/leaflet-measure.js"></script>
         <script src="data/Parishes_1.js"></script>
-        <script src="data/PlanningRegions_2.js"></script>
+        <script src="data/StatePlanningRegions_2.js"></script>
         <script src="data/LWCFfundedprojects_3.js"></script>
         <script>
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:7
-        }).fitBounds([[28.735166133450477,-95.45789470534889],[33.13300976660314,-87.25273061239976]]);
+        }).fitBounds([[28.735166133450477,-95.52264505330461],[33.13300976660314,-87.18798026444404]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var measureControl = new L.Control.Measure({
@@ -69,8 +69,7 @@
         function pop_Parishes_1(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
-                        <th scope="row">PARISH</th>\
-                        <td>' + (feature.properties['PARISH'] !== null ? Autolinker.link(feature.properties['PARISH'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['PARISH'] !== null ? Autolinker.link(feature.properties['PARISH'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['Region'] !== null ? Autolinker.link(feature.properties['Region'].toLocaleString()) : '') + '</td>\
@@ -95,7 +94,7 @@
             return {
                 pane: 'pane_Parishes_1',
                 opacity: 1,
-                color: 'rgba(0,0,0,1.0)',
+                color: 'rgba(31,120,180,1.0)',
                 dashArray: '1,5',
                 lineCap: 'butt',
                 lineJoin: 'miter',
@@ -118,46 +117,20 @@
         });
         bounds_group.addLayer(layer_Parishes_1);
         map.addLayer(layer_Parishes_1);
-        function pop_PlanningRegions_2(feature, layer) {
+        function pop_StatePlanningRegions_2(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2"><strong>Region</strong><br />' + (feature.properties['Region'] !== null ? Autolinker.link(feature.properties['Region'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['Region'] !== null ? Autolinker.link(feature.properties['Region'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_PlanningRegions_2_0(feature) {
+        function style_StatePlanningRegions_2_0(feature) {
             switch(String(feature.properties['Region'])) {
                 case '1':
                     return {
-                pane: 'pane_PlanningRegions_2',
-                opacity: 1,
-                color: 'rgba(178,223,138,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 4.0, 
-                fillOpacity: 0,
-                interactive: true,
-            }
-                    break;
-                case '2':
-                    return {
-                pane: 'pane_PlanningRegions_2',
-                opacity: 1,
-                color: 'rgba(248,242,42,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 4.0, 
-                fillOpacity: 0,
-                interactive: true,
-            }
-                    break;
-                case '3':
-                    return {
-                pane: 'pane_PlanningRegions_2',
+                pane: 'pane_StatePlanningRegions_2',
                 opacity: 1,
                 color: 'rgba(255,127,0,1.0)',
                 dashArray: '',
@@ -165,12 +138,38 @@
                 lineJoin: 'miter',
                 weight: 4.0, 
                 fillOpacity: 0,
-                interactive: true,
+                interactive: false,
+            }
+                    break;
+                case '2':
+                    return {
+                pane: 'pane_StatePlanningRegions_2',
+                opacity: 1,
+                color: 'rgba(248,242,42,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 4.0, 
+                fillOpacity: 0,
+                interactive: false,
+            }
+                    break;
+                case '3':
+                    return {
+                pane: 'pane_StatePlanningRegions_2',
+                opacity: 1,
+                color: 'rgba(178,223,138,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 4.0, 
+                fillOpacity: 0,
+                interactive: false,
             }
                     break;
                 case '4':
                     return {
-                pane: 'pane_PlanningRegions_2',
+                pane: 'pane_StatePlanningRegions_2',
                 opacity: 1,
                 color: 'rgba(31,120,180,1.0)',
                 dashArray: '',
@@ -178,12 +177,12 @@
                 lineJoin: 'miter',
                 weight: 4.0, 
                 fillOpacity: 0,
-                interactive: true,
+                interactive: false,
             }
                     break;
                 case '5':
                     return {
-                pane: 'pane_PlanningRegions_2',
+                pane: 'pane_StatePlanningRegions_2',
                 opacity: 1,
                 color: 'rgba(251,154,153,1.0)',
                 dashArray: '',
@@ -191,12 +190,12 @@
                 lineJoin: 'miter',
                 weight: 4.0, 
                 fillOpacity: 0,
-                interactive: true,
+                interactive: false,
             }
                     break;
                 case '6':
                     return {
-                pane: 'pane_PlanningRegions_2',
+                pane: 'pane_StatePlanningRegions_2',
                 opacity: 1,
                 color: 'rgba(51,160,44,1.0)',
                 dashArray: '',
@@ -204,12 +203,25 @@
                 lineJoin: 'miter',
                 weight: 4.0, 
                 fillOpacity: 0,
-                interactive: true,
+                interactive: false,
             }
                     break;
                 case '7':
                     return {
-                pane: 'pane_PlanningRegions_2',
+                pane: 'pane_StatePlanningRegions_2',
+                opacity: 1,
+                color: 'rgba(92,182,227,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 4.0, 
+                fillOpacity: 0,
+                interactive: false,
+            }
+                    break;
+                case '8':
+                    return {
+                pane: 'pane_StatePlanningRegions_2',
                 opacity: 1,
                 color: 'rgba(227,26,28,1.0)',
                 dashArray: '',
@@ -217,107 +229,72 @@
                 lineJoin: 'miter',
                 weight: 4.0, 
                 fillOpacity: 0,
-                interactive: true,
-            }
-                    break;
-                case '8':
-                    return {
-                pane: 'pane_PlanningRegions_2',
-                opacity: 1,
-                color: 'rgba(166,206,227,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 4.0, 
-                fillOpacity: 0,
-                interactive: true,
-            }
-                    break;
-                default:
-                    return {
-                pane: 'pane_PlanningRegions_2',
-                opacity: 1,
-                color: 'rgba(0,0,0,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 4.0, 
-                fillOpacity: 0,
-                interactive: true,
+                interactive: false,
             }
                     break;
             }
         }
-        map.createPane('pane_PlanningRegions_2');
-        map.getPane('pane_PlanningRegions_2').style.zIndex = 402;
-        map.getPane('pane_PlanningRegions_2').style['mix-blend-mode'] = 'normal';
-        var layer_PlanningRegions_2 = new L.geoJson(json_PlanningRegions_2, {
+        map.createPane('pane_StatePlanningRegions_2');
+        map.getPane('pane_StatePlanningRegions_2').style.zIndex = 402;
+        map.getPane('pane_StatePlanningRegions_2').style['mix-blend-mode'] = 'normal';
+        var layer_StatePlanningRegions_2 = new L.geoJson(json_StatePlanningRegions_2, {
             attribution: '',
-            interactive: true,
-            dataVar: 'json_PlanningRegions_2',
-            layerName: 'layer_PlanningRegions_2',
-            pane: 'pane_PlanningRegions_2',
-            onEachFeature: pop_PlanningRegions_2,
-            style: style_PlanningRegions_2_0,
+            interactive: false,
+            dataVar: 'json_StatePlanningRegions_2',
+            layerName: 'layer_StatePlanningRegions_2',
+            pane: 'pane_StatePlanningRegions_2',
+            onEachFeature: pop_StatePlanningRegions_2,
+            style: style_StatePlanningRegions_2_0,
         });
-        bounds_group.addLayer(layer_PlanningRegions_2);
-        map.addLayer(layer_PlanningRegions_2);
+        bounds_group.addLayer(layer_StatePlanningRegions_2);
+        map.addLayer(layer_StatePlanningRegions_2);
         function pop_LWCFfundedprojects_3(feature, layer) {
             var popupContent = '<table>\
+			         <tr><h3>\
+                        ' + (feature.properties['Project_Na'] !== null ? Autolinker.link(feature.properties['Project_Na'].toLocaleString()) : '') + '\
+                    </h3></tr>\
                     <tr>\
-					    <th scope="row">Project Name:</th>\
-                        <td>' + (feature.properties['Project_Na'] !== null ? Autolinker.link(feature.properties['Project_Na'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Project Number:</th>\
-                        <td>' + (feature.properties['Project_Nu'] !== null ? Autolinker.link(feature.properties['Project_Nu'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-					<th scope="row">Parish:</th>\
-                        <td>' + (feature.properties['Parish'] !== null ? Autolinker.link(feature.properties['Parish'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-					<th scope="row">Nearby City: </th>\
-                        <td colspan="2">' + (feature.properties['City'] !== null ? Autolinker.link(feature.properties['City'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Sponsor:</th>\
-                        <td>' + (feature.properties['Sponsor'] !== null ? Autolinker.link(feature.properties['Sponsor'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Sponsor Type:</th>\
-                        <td>' + (feature.properties['Spons_Type'] !== null ? Autolinker.link(feature.properties['Spons_Type'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Park Name:</th>\
+                        <th scope="row">Park Name</th>\
                         <td>' + (feature.properties['Park_Name'] !== null ? Autolinker.link(feature.properties['Park_Name'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">LWCF Amount:</th>\
-                        <td>$' + (feature.properties['LWCF_Amt'] !== null ? Autolinker.link(feature.properties['LWCF_Amt'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Parish</th>\
+                        <td>' + (feature.properties['Parish'] !== null ? Autolinker.link(feature.properties['Parish'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-						<th scope="row">Match Amount:</th>\
-                        <td>$' + (feature.properties['Match_Amt'] !== null ? Autolinker.link(feature.properties['Match_Amt'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Nearest City</th>\
+                        <td>' + (feature.properties['City'] !== null ? Autolinker.link(feature.properties['City'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Total:</th>\
-                        <td>$' + (feature.properties['Total'] !== null ? Autolinker.link(feature.properties['Total'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Sponsor</th>\
+                        <td>' + (feature.properties['Sponsor'] !== null ? Autolinker.link(feature.properties['Sponsor'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Approved?</th>\
-                        <td>' + (feature.properties['Approved'] !== null ? Autolinker.link(feature.properties['Approved'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Sponsor Type</th>\
+                        <td>' + (feature.properties['Spons_Type'] !== null ? Autolinker.link(feature.properties['Spons_Type'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Type:</th>\
-                        <td>' + (feature.properties['Type'] !== null ? Autolinker.link(feature.properties['Type'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">LWCF Amount</th>\
+                        <td> $' + (feature.properties['LWCF_Amt'] !== null ? Autolinker.link(feature.properties['LWCF_Amt'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Local Match</th>\
+                        <td> $' + (feature.properties['Match_Amt'] !== null ? Autolinker.link(feature.properties['Match_Amt'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Total Cost</th>\
+                        <td> $' + (feature.properties['Total'] !== null ? Autolinker.link(feature.properties['Total'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+					                    <tr>\
+                        <th scope="row">Project Number</th>\
+                        <td>' + (feature.properties['Project_Nu'] !== null ? Autolinker.link(feature.properties['Project_Nu'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
         function style_LWCFfundedprojects_3_0(feature) {
-            if (feature.properties['LWCF_Amt'] >= 0.000000 && feature.properties['LWCF_Amt'] <= 100000.000000 ) {
+            if (feature.properties['LWCF_Amt'] >= 1.000000 && feature.properties['LWCF_Amt'] <= 50000.000000 ) {
                 return {
                 pane: 'pane_LWCFfundedprojects_3',
                 radius: 4.0,
@@ -333,7 +310,7 @@
                 interactive: true,
             }
             }
-            if (feature.properties['LWCF_Amt'] >= 100000.000000 && feature.properties['LWCF_Amt'] <= 250000.000000 ) {
+            if (feature.properties['LWCF_Amt'] >= 50000.000000 && feature.properties['LWCF_Amt'] <= 100000.000000 ) {
                 return {
                 pane: 'pane_LWCFfundedprojects_3',
                 radius: 4.0,
@@ -349,7 +326,7 @@
                 interactive: true,
             }
             }
-            if (feature.properties['LWCF_Amt'] >= 250000.000000 && feature.properties['LWCF_Amt'] <= 500000.000000 ) {
+            if (feature.properties['LWCF_Amt'] >= 100000.000000 && feature.properties['LWCF_Amt'] <= 250000.000000 ) {
                 return {
                 pane: 'pane_LWCFfundedprojects_3',
                 radius: 4.0,
@@ -365,7 +342,7 @@
                 interactive: true,
             }
             }
-            if (feature.properties['LWCF_Amt'] >= 500000.000000 && feature.properties['LWCF_Amt'] <= 1000000.000000 ) {
+            if (feature.properties['LWCF_Amt'] >= 250000.000000 && feature.properties['LWCF_Amt'] <= 500000.000000 ) {
                 return {
                 pane: 'pane_LWCFfundedprojects_3',
                 radius: 4.0,
@@ -381,7 +358,7 @@
                 interactive: true,
             }
             }
-            if (feature.properties['LWCF_Amt'] >= 1000000.000000 && feature.properties['LWCF_Amt'] <= 2000000.000000 ) {
+            if (feature.properties['LWCF_Amt'] >= 500000.000000 && feature.properties['LWCF_Amt'] <= 1000000.000000 ) {
                 return {
                 pane: 'pane_LWCFfundedprojects_3',
                 radius: 4.0,
@@ -397,7 +374,7 @@
                 interactive: true,
             }
             }
-            if (feature.properties['LWCF_Amt'] >= 2000000.000000 && feature.properties['LWCF_Amt'] <= 3000000.000000 ) {
+            if (feature.properties['LWCF_Amt'] >= 1000000.000000 && feature.properties['LWCF_Amt'] <= 2500000.000000 ) {
                 return {
                 pane: 'pane_LWCFfundedprojects_3',
                 radius: 4.0,
@@ -413,7 +390,7 @@
                 interactive: true,
             }
             }
-            if (feature.properties['LWCF_Amt'] >= 3000000.000000 && feature.properties['LWCF_Amt'] <= 3459345.590000 ) {
+            if (feature.properties['LWCF_Amt'] >= 2500000.000000 && feature.properties['LWCF_Amt'] <= 3459345.590000 ) {
                 return {
                 pane: 'pane_LWCFfundedprojects_3',
                 radius: 4.0,
@@ -450,8 +427,33 @@
         });
         bounds_group.addLayer(layer_LWCFfundedprojects_3);
         map.addLayer(layer_LWCFfundedprojects_3);
+            var title = new L.Control();
+            title.onAdd = function (map) {
+                this._div = L.DomUtil.create('div', 'info');
+                this.update();
+                return this._div;
+            };
+            title.update = function () {
+                this._div.innerHTML = '<h2>LWCF Funded Projects</h2>';
+            };
+            title.addTo(map);
+            var abstract = new L.Control({'position':'bottomleft'});
+            abstract.onAdd = function (map) {
+                this._div = L.DomUtil.create('div',
+                'leaflet-control leaflet-bar abstract');
+                this._div.id = 'abstract'
+
+                    abstract.show();
+                    return this._div;
+                };
+                abstract.show = function () {
+                    this._div.classList.remove("abstract");
+                    this._div.classList.add("abstractUncollapsed");
+                    this._div.innerHTML = 'The National Park Service\'s Land and Water Conservation Fund provides matching grants to States and local governments for the acquisition and development of public outdoor recreation areas and facilities. Lean more at nps.gov/subjects/lwcf';
+            };
+            abstract.addTo(map);
         var baseMaps = {};
-        L.control.layers(baseMaps,{'LWCF funded projects<br /><table><tr><td style="text-align: center;"><img src="legend/LWCFfundedprojects_3_01000000.png" /></td><td> 0 - 100000 </td></tr><tr><td style="text-align: center;"><img src="legend/LWCFfundedprojects_3_1000002500001.png" /></td><td> 100000 - 250000 </td></tr><tr><td style="text-align: center;"><img src="legend/LWCFfundedprojects_3_2500005000002.png" /></td><td> 250000 - 500000 </td></tr><tr><td style="text-align: center;"><img src="legend/LWCFfundedprojects_3_50000010000003.png" /></td><td> 500000 - 1000000 </td></tr><tr><td style="text-align: center;"><img src="legend/LWCFfundedprojects_3_100000020000004.png" /></td><td> 1000000 - 2000000 </td></tr><tr><td style="text-align: center;"><img src="legend/LWCFfundedprojects_3_200000030000005.png" /></td><td> 2000000 - 3000000 </td></tr><tr><td style="text-align: center;"><img src="legend/LWCFfundedprojects_3_300000034593466.png" /></td><td> 3000000 - 3459346 </td></tr></table>': layer_LWCFfundedprojects_3,'Planning Regions<br /><table><tr><td style="text-align: center;"><img src="legend/PlanningRegions_2_10.png" /></td><td>1</td></tr><tr><td style="text-align: center;"><img src="legend/PlanningRegions_2_21.png" /></td><td>2</td></tr><tr><td style="text-align: center;"><img src="legend/PlanningRegions_2_32.png" /></td><td>3</td></tr><tr><td style="text-align: center;"><img src="legend/PlanningRegions_2_43.png" /></td><td>4</td></tr><tr><td style="text-align: center;"><img src="legend/PlanningRegions_2_54.png" /></td><td>5</td></tr><tr><td style="text-align: center;"><img src="legend/PlanningRegions_2_65.png" /></td><td>6</td></tr><tr><td style="text-align: center;"><img src="legend/PlanningRegions_2_76.png" /></td><td>7</td></tr><tr><td style="text-align: center;"><img src="legend/PlanningRegions_2_87.png" /></td><td>8</td></tr><tr><td style="text-align: center;"><img src="legend/PlanningRegions_2_8.png" /></td><td></td></tr></table>': layer_PlanningRegions_2,'<img src="legend/Parishes_1.png" /> Parishes': layer_Parishes_1,"OSM Standard": layer_OSMStandard_0,}).addTo(map);
+        L.control.layers(baseMaps,{'LWCF funded projects<br /><table><tr><td style="text-align: center;"><img src="legend/LWCFfundedprojects_3_lessthan500000.png" /></td><td>less than $50,000 </td></tr><tr><td style="text-align: center;"><img src="legend/LWCFfundedprojects_3_500001000001.png" /></td><td>$50,000 - $100,000 </td></tr><tr><td style="text-align: center;"><img src="legend/LWCFfundedprojects_3_1000002500002.png" /></td><td>$100,000 - $250,000 </td></tr><tr><td style="text-align: center;"><img src="legend/LWCFfundedprojects_3_2500005000003.png" /></td><td>$250,000 - $500,000 </td></tr><tr><td style="text-align: center;"><img src="legend/LWCFfundedprojects_3_50000010000004.png" /></td><td>$500,000 - $1,000,000 </td></tr><tr><td style="text-align: center;"><img src="legend/LWCFfundedprojects_3_100000025000005.png" /></td><td>$1,000,000 - $2,500,000 </td></tr><tr><td style="text-align: center;"><img src="legend/LWCFfundedprojects_3_250000035000006.png" /></td><td>$2,500,000 - $3,500,000 </td></tr></table>': layer_LWCFfundedprojects_3,'State Planning Regions<br /><table><tr><td style="text-align: center;"><img src="legend/StatePlanningRegions_2_Region10.png" /></td><td>Region 1</td></tr><tr><td style="text-align: center;"><img src="legend/StatePlanningRegions_2_Region21.png" /></td><td>Region 2</td></tr><tr><td style="text-align: center;"><img src="legend/StatePlanningRegions_2_Region32.png" /></td><td>Region 3</td></tr><tr><td style="text-align: center;"><img src="legend/StatePlanningRegions_2_Region43.png" /></td><td>Region 4</td></tr><tr><td style="text-align: center;"><img src="legend/StatePlanningRegions_2_Region54.png" /></td><td>Region 5</td></tr><tr><td style="text-align: center;"><img src="legend/StatePlanningRegions_2_Region65.png" /></td><td>Region 6</td></tr><tr><td style="text-align: center;"><img src="legend/StatePlanningRegions_2_Region76.png" /></td><td>Region 7</td></tr><tr><td style="text-align: center;"><img src="legend/StatePlanningRegions_2_Region87.png" /></td><td>Region 8</td></tr></table>': layer_StatePlanningRegions_2,'<img src="legend/Parishes_1.png" /> Parishes': layer_Parishes_1,"OSM Standard": layer_OSMStandard_0,}).addTo(map);
         setBounds();
         var i = 0;
         layer_Parishes_1.eachLayer(function(layer) {
@@ -459,22 +461,22 @@
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['PARISH'] !== null?String('<div style="color: #000000; font-size: 8pt; font-family: \'Georgia\', sans-serif;">' + layer.feature.properties['PARISH']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_Parishes_1'});
+            layer.bindTooltip((layer.feature.properties['PARISH'] !== null?String('<div style="color: #1f78b4; font-size: 8pt; font-family: \'Georgia\', sans-serif;">' + layer.feature.properties['PARISH']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_Parishes_1'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
               addLabel(layer, i);
               i++;
         });
-        resetLabels([layer_Parishes_1,layer_PlanningRegions_2]);
+        resetLabels([layer_Parishes_1,layer_StatePlanningRegions_2]);
         map.on("zoomend", function(){
-            resetLabels([layer_Parishes_1,layer_PlanningRegions_2]);
+            resetLabels([layer_Parishes_1,layer_StatePlanningRegions_2]);
         });
         map.on("layeradd", function(){
-            resetLabels([layer_Parishes_1,layer_PlanningRegions_2]);
+            resetLabels([layer_Parishes_1,layer_StatePlanningRegions_2]);
         });
         map.on("layerremove", function(){
-            resetLabels([layer_Parishes_1,layer_PlanningRegions_2]);
+            resetLabels([layer_Parishes_1,layer_StatePlanningRegions_2]);
         });
         </script>
     </body>
