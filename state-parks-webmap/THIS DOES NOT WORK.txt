@@ -1,0 +1,7 @@
+
+The functioning simple pin map is:
+
+https://franklinassoc.github.io/leaflet-map-simple/
+
+source
+https://github.com/franklinassoc/leaflet-map-simple
