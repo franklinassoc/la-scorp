@@ -20,8 +20,10 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.js"></script>
 
   <!-- Font Awesome -->
-  <script src="https://use.fontawesome.com/77cd9dd4f5.js"></script>
+<!-- OBSOLETE <script src="https://use.fontawesome.com/77cd9dd4f5.js"></script> -->
+  <script src="https://kit.fontawesome.com/acf8ca91b3.js"></script>
 
+ 
   <!-- Leaflet.awesome-markers -->
   <link rel="stylesheet" type="text/css" href="scripts/Leaflet.awesome-markers/dist/leaflet.awesome-markers.css">
   <script type="text/javascript" src="scripts/Leaflet.awesome-markers/dist/leaflet.awesome-markers.js"></script>
@@ -47,14 +49,14 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/0.71/jquery.csv-0.71.min.js"></script>
 
   <!-- Custom style sheet -->
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
 
   <!-- Layer Support for Marker Cluster -->
   <script src="https://unpkg.com/leaflet.markercluster.layersupport@1.0.3/dist/leaflet.markercluster.layersupport.js"></script>
 
   <!-- DataTables -->
-  <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
-  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css" />
+  <script  type="text/javascript" src="scripts/datatables/jquery.dataTables.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/jquery.dataTables.min.css" />
 
   <!-- Material Icons -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -71,8 +73,8 @@
     var map = L.map('map', {
       attributionControl: false,
       zoomControl: false,
-      scrollWheelZoom: false
-    }).setView([41.76,-72.69], 11); // default center is overridden by Google Sheet options and points
+      scrollWheelZoom: true
+    }).setView([31.28, -92.45], 11); // default center is overridden by Google Sheet options and points
   </script>
 
   <script type="text/javascript" src="google-doc-url.js"></script>
