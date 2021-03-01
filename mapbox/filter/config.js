@@ -9,7 +9,7 @@ const config = {
   description:
     "LORI provides location and site characteristic data for outdoor recreation sites within Louisiana.",
   sideBarInfo: ["Park_Name", "Owner_Entity", "Full_Address", "Description"],
-  popupInfo: ["Park_Name"&"Owner_Entity"],
+  popupInfo: ["Park_Name"], // Can accept only one field
   filters: [
     {
       type: "checkbox",
