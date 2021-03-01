@@ -6,8 +6,10 @@
   <title></title>
   <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
-  <script src='https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.js'></script>
-  <link href='https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.css' rel='stylesheet' />
+  <script src='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js'></script>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel='stylesheet' />
+  <script src='dist/mapbox-gl-layers.js'></script>
+  <link href='dist/mapbox-gl-layers.css' rel='stylesheet' />
   <script src='https://npmcdn.com/csv2geojson@latest/csv2geojson.js'></script>
   <script src='https://npmcdn.com/@turf/turf/turf.min.js'></script>
   <style>
@@ -101,6 +103,23 @@
       transformRequest: transformRequest
     });
 
+	// ADD MORE LAYERS code from github developmentseed
+	map.on('style.load', function () {
+	  // defaults to using all layers in the style, grouped as they are
+	  // in Mapbox Studio
+	  new MapboxGLLayers({position: 'top-left'}).addTo(map);
+
+	  new MapboxGLLayers({
+		layers: {
+		  'ALL PARKS': ['national_park', 'parks'],
+		  'National Parks': 'national_park',
+		  'Other Parks': 'parks'
+		},
+		onChange: function (selected) { console.log('Selected:', selected); }
+	  }).addTo(map);
+	})
+	
+	// Resume original code - add point data
     $(document).ready(function () {
       $.ajax({
         type: "GET",
