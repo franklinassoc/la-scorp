@@ -103,6 +103,22 @@
       transformRequest: transformRequest
     });
 
+	// ADD MORE LAYERS code from github developmentseed
+	map.on('style.load', function () {
+	  // defaults to using all layers in the style, grouped as they are
+	  // in Mapbox Studio
+	  new MapboxGLLayers({position: 'top-left'}).addTo(map);
+
+	  new MapboxGLLayers({
+		layers: {
+		  'ALL PARKS': ['national_park', 'parks'],
+		  'National Parks': 'national_park',
+		  'Other Parks': 'parks'
+		},
+		onChange: function (selected) { console.log('Selected:', selected); }
+	  }).addTo(map);
+	})
+	
 	// Resume original code - add point data
     $(document).ready(function () {
       $.ajax({
@@ -112,6 +128,8 @@
         dataType: "text",
         success: function (csvData) { makeGeoJSON(csvData); }
       });
+
+
 
       function makeGeoJSON(csvData) {
         csv2geojson.csv2geojson(csvData, {
