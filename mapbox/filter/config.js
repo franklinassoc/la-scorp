@@ -4,12 +4,12 @@ const config = {
     'pk.eyJ1IjoiZnJhbmthZG1pbiIsImEiOiJjajhvbW51NHYwNWI2MzNyejV4Y2s0aDN4In0.FSOtZl6iInZhjDUiS6Xscg',
   CSV: "https://docs.google.com/spreadsheets/d/1SrdM1eT4sNml-oq4_I6wodyFBhflymjUAmdSDIrjykY/gviz/tq?tqx=out:csv&sheet=local-parks",
   center: [-92.172, 31.096],
-  zoom: 6,
+  zoom: 8,
   title: "Louisiana Outdoor Recreation Inventory",
   description:
     "LORI provides location and site characteristic data for outdoor recreation sites within Louisiana.",
   sideBarInfo: ["Park_Name", "Owner_Entity", "Full_Address", "Description"],
-  popupInfo: ["Park_Name" + `<h4>` + `Entity: ` + `<b>` + "Owner_Entity" + `</b>` + `</h4>`],
+  popupInfo: ["Park_Name", "Owner_Entity"],
   filters: [
     {
       type: "checkbox",
