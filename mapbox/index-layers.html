@@ -97,7 +97,7 @@
     mapboxgl.accessToken = 'pk.eyJ1IjoiZnJhbmthZG1pbiIsImEiOiJjajhvbW51NHYwNWI2MzNyejV4Y2s0aDN4In0.FSOtZl6iInZhjDUiS6Xscg'; //Mapbox token for frankadmin
     var map = new mapboxgl.Map({
       container: 'map', // container id
-      style: 'mapbox://styles/mapbox/streets-v11', // YOUR TURN: choose a style: https://docs.mapbox.com/api/maps/#styles
+      style: 'mapbox://styles/mapbox/SCORP', // YOUR TURN: choose a style: https://docs.mapbox.com/api/maps/#styles
       center: [-92.172, 31.096], // starting position [lng, lat] center of Louisiana
       zoom: 10,// starting zoom
       transformRequest: transformRequest
@@ -111,9 +111,9 @@
 
 	  new MapboxGLLayers({
 		layers: {
-		  'ALL PARKS': ['national_park', 'parks'],
-		  'National Parks': 'national_park',
-		  'Other Parks': 'parks'
+		  'Federal': ['us-military-louisiana', 'usace-louisiana', 'us-fws-wmas', 'us-national-parks-louisiana', 'us-national-forest-louisiana'],
+		  'State': ['la-state-parks', 'la-state-historic-sites', 'la-wildlife-fisheries'],
+		  'Other': ['marinas', 'trailheads']
 		},
 		onChange: function (selected) { console.log('Selected:', selected); }
 	  }).addTo(map);
