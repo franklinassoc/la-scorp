@@ -122,11 +122,10 @@
 	// Add Controls
 		map.addControl(new mapboxgl.NavigationControl(), 'top-left');
 		map.addControl(new mapboxgl.ScaleControl({}));
+	// Geolocate only works over HTTPS
 		map.addControl(new mapboxgl.GeolocateControl({positionOptions: {
-		enableHighAccuracy: false
-		},
-		trackUserLocation: true
-		})
+		enableHighAccuracy: false, tiimeout:6000},
+		trackUserLocation: true})
 		);
  
 	// Resume original code - add point data
