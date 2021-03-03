@@ -138,8 +138,6 @@
         success: function (csvData) { makeGeoJSON(csvData); }
       });
 
-
-
       function makeGeoJSON(csvData) {
         csv2geojson.csv2geojson(csvData, {
           latfield: 'Latitude',
@@ -148,20 +146,19 @@
         }, function (err, data) {
           map.on('load', function () {
 
-            //Add the the layer to the map
-            map.addLayer({
-              'id': 'csvData',
-              'type': 'circle',
-              'source': {
-                'type': 'geojson',
-                'data': data
-              },
-              'paint': {
-                'circle-radius': 4,
-                'circle-color': "green"
-              }
-            });
-
+        //Add the the layer to the map
+        map.addLayer({
+          'id': 'csvData',
+          'type': 'circle',
+          'source': {
+            'type': 'geojson',
+            'data': data
+            },
+          'paint': {
+            'circle-radius': 4,
+            'circle-color': "green"
+           }
+         });
 
             // When a click event occurs on a feature in the csvData layer, open a popup at the
             // location of the feature, with description HTML from its properties.
@@ -171,20 +168,19 @@
               //set popup text
               //You can adjust the values of the popup to match the headers of your CSV.
               // For example: e.features[0].properties.Name is retrieving information from the field Name in the original CSV.
-              // var description = `<h3>` + e.features[0].properties.Name + `</h3>` + `<h4>` + `<b>` + `Address: ` + `</b>` + e.features[0].properties.Address + `</h4>` + `<h4>` + `<b>` + `Phone: ` + `</b>` + e.features[0].properties.Phone + `</h4>`;
-			  var description = `<h3>` + e.features[0].properties.Park_Name + `</h3>` +
+              var description = `<h3>` + e.features[0].properties.Park_Name + `</h3>` +
 			  `<h4>` + `Entity: ` + `<b>` +  e.features[0].properties.Owner_Entity + `</b>` + `</h4>` + 
 			  `<h4>` +  e.features[0].properties.Full_Address + `</h4>` + 
 			  `<h4>` + `<b>` + `Description: ` + `</b>`  + e.features[0].properties.Description + `</h4>`;
 
-              // Ensure that if the map is zoomed out such that multiple
-              // copies of the feature are visible, the popup appears
-              // over the copy being pointed to.
-              while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-                coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+             // Ensure that if the map is zoomed out such that multiple
+             // copies of the feature are visible, the popup appears
+             // over the copy being pointed to.
+             while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+               coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
               }
 
-              //add Popup to map
+            //add Popup to map
 
               new mapboxgl.Popup()
                 .setLngLat(coordinates)
@@ -210,7 +206,6 @@
         });
       };
     });
-
 
 
 
